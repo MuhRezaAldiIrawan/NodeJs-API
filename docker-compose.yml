@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  
+  mongoDB:
+    container_name: mongoDB
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongodb-volcode:/data/db
+
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongoDB
+    ports:
+      - 9000:3000
+
+volumes:
+  mongodb-volcode: {}
