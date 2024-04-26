@@ -8,6 +8,8 @@ services:
     restart: always
     volumes:
       - mongodb-volcode:/data/db
+    ports:
+      - 27017:27017
 
   app:
     container_name: app
@@ -16,6 +18,8 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mongoDB
+    environment:
+      - MONGO_URL=mongodb://mongoDB:27017/lovvitRedemLogs
     ports:
       - 9000:3000
 
