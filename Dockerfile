@@ -1,12 +1,13 @@
-FROM node:18.12.1-alpine3.17.0
+FROM node:20
 
-WORKDIR /
-
-COPY package*.json ./
-
-RUN npm install
+WORKDIR /usr/app
 
 COPY . .
 
-CMD [ "node", "server.js" ]
+RUN npm install
+
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]
 
