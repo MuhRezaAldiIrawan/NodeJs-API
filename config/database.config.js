@@ -1,4 +1,9 @@
-module.exports = {
-    url: 'mongodb://localhost:27017/lovvirRedemLogs'
-};
+// module.exports = {
+//     url: 'mongodb://mongoDB:27017/lovvitRedemLogs'
+// };
 
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
+
+module.exports = {
+  url: `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+};

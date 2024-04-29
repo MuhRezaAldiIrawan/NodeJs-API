@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const db = require("./config/database.config"); 
 const cityRoutes = require('./routes/cityRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 // Integrate CRUD routes
 
 app.use('/api', cityRoutes);
+app.use('/api', authRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 3000;

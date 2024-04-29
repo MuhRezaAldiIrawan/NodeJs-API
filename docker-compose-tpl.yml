@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:5.0
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=dbPassword
+    ports:
+      - 37017:27017
+    volumes:
+      - db:/data/db
+
+  app:
+    container_name: app
+    depends_on:
+      - mongodb
+    build: ./lovvit-redem-logs
+    restart: unless-stopped
+    ports:
+      - 9000:3000
+    environment:
+      - DB_HOST=mongodb
+      - DB_USER=root
+      - DB_PASSWORD=dbPassword
+      - DB_NAME=lovvit-redem-logs
+      - DB_PORT=27017
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:

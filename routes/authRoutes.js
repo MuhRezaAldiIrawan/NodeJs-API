@@ -1,20 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const cities = require('../controllers/cityControllers');
+const userController = require('../controllers/userContollers');
 
-// Create a new Item
-router.post('/cities', cities.addCity);
+// Route untuk registrasi user
+router.post('/register', userController.register);
 
-// Retrieve all cities
-router.get('/cities', cities.getAllCities);
+// Route untuk login user
+router.post('/login', userController.login);
 
-// Retrieve a single Item with itemId
-router.get('/cities/:citiesId', cities.getCityById);
+// Route untuk mendapatkan semua user
+router.get('/users', userController.getAllUsers);
 
-// Update an Item with itemId
-router.put('/cities/:itemId', cities.updateCity);
-
-// Delete an Item with itemId
-router.delete('/cities/:itemId', cities.deleteCity);
+// Route untuk mendapatkan user berdasarkan ID
+router.get('/users/:id', userController.getUserById);
 
 module.exports = router;
