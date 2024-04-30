@@ -14,8 +14,8 @@ services:
     volumes:
       - db:/data/db
 
-  app:
-    container_name: app
+  javascript-app:
+    container_name: javascript-app
     depends_on:
       - mongodb
     build: ./lovvit-redem-logs
@@ -30,6 +30,9 @@ services:
       - DB_PORT=27017
     stdin_open: true
     tty: true
+    volumes:
+      - ./lovvit-redem-logs:/usr/app
+    
 
 volumes:
   db:
