@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userContollers');
+const upload = require('../helper/image_upload');
 
 // Route untuk registrasi user
-router.post('/register', userController.register);
+router.post('/register', upload.single('imageProfile'),userController.register);
 
 // Route untuk login user
 router.post('/login', userController.login);

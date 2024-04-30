@@ -4,18 +4,20 @@ const jwt = require('jsonwebtoken');
 
 
 // Register User
-exports.register = async (req, res) => {
+exports.register =  async (req, res) => {
+    
     try {
         const { nama, email, password } = req.body;
-        const saltRounds = 10; // Anda bisa menyesuaikan jumlah salt rounds sesuai kebutuhan
+        const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
         const newUser = new User({
             nama,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            imageProfile: req.file.path
         });
         await newUser.save();
-        res.status(201).json({ message: 'User berhasil didaftarkan' });
+        res.status(201).json({ message: 'User berhasil didaftarkan', imageProfile: req.file.path });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
