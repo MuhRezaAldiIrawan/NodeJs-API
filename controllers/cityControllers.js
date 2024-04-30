@@ -10,6 +10,7 @@ exports.getAllCities = async (req, res) => {
     }
 };
 
+
 // Mendapatkan kota berdasarkan ID
 exports.getCityById = async (req, res) => {
     try {
