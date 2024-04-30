@@ -1,4 +1,4 @@
-const City = require('../models/city'); // Asumsi model City sudah ada
+const City = require('../models/city');
 
 // Mendapatkan semua kota
 exports.getAllCities = async (req, res) => {
@@ -25,17 +25,24 @@ exports.getCityById = async (req, res) => {
 
 // Menambahkan kota baru
 exports.addCity = async (req, res) => {
-    const city = new City({
-        code: req.body.code,
-        city_name: req.body.city_name,
-        description: req.body.description
-    });
-
     try {
+        // Cek apakah kode kota sudah ada
+        const existingCity = await City.findOne({ code: req.body.code });
+        if (existingCity) {
+            return res.status(400).json({ message: 'Kode kota telah ada!!!!!' });
+        }
+
+        // Jika kode kota belum ada, buat kota baru
+        const city = new City({
+            code: req.body.code,
+            city_name: req.body.city_name,
+            description: req.body.description
+        });
+
         const newCity = await city.save();
         res.status(201).json(newCity);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 

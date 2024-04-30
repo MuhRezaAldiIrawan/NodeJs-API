@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const cities = require('../controllers/cityControllers');
+const basicAuthMiddleware = require('../middleware/auth_access');
+
+router.use(basicAuthMiddleware);
 
 // Create a new Item
 router.post('/cities', cities.addCity);

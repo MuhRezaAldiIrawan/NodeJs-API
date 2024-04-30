@@ -4,7 +4,7 @@
   "description": "lovvit histori redem logs kuponku",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,12 +17,16 @@
   "author": "Muh Reza Aldi Irawan",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "basic-auth": "^2.0.1",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "buffer": "^6.0.3",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.2",
+    "mongoose": "^8.3.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.0"
   }
 }

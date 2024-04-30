@@ -22,15 +22,15 @@ mongoose.connect(db.url)
     process.exit();
 });
 
-// Define routes
+// Define routeslo  
 app.get("/", (req, res) => {
-  res.send("Welcome to Lovvir Redem Logs API Lovvit");
+  res.send("Welcome to Lovvir Redem Logs API Lovvit ketiga");
 });
 
 // Integrate CRUD routes
 
 app.use('/api', cityRoutes);
-app.use('/api', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
