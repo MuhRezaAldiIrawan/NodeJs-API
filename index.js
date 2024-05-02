@@ -25,7 +25,7 @@ mongoose.connect(db.url)
 
 // Define routeslo  
 app.get("/", (req, res) => {
-  res.send("Welcome to master data Lovvit App");
+  res.send("Welcome to master data Lovvit");
 });
 
 // Integrate CRUD routes
@@ -35,7 +35,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/portalaccount', portalAccountRoutes);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
