@@ -5,3 +5,5 @@ upload/
 ignore-test/
 
 .env
+
+.dockerignore
