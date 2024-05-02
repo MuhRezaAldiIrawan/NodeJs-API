@@ -4,7 +4,7 @@
   "description": "lovvit histori redem logs kuponku",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon main"
+    "start": "nodemon --watch . --legacy-watch main"
   },
   "keywords": [
     "nodejs",
