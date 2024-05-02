@@ -17,6 +17,7 @@
   "author": "Muh Reza Aldi Irawan",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "basic-auth": "^2.0.1",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",

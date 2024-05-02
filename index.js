@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const db = require("./config/database.config"); 
 const cityRoutes = require('./routes/cityRoutes');
 const authRoutes = require('./routes/authRoutes');
+const portalAccountRoutes = require('./routes/portalaccountRoutes');
 
 const app = express();
 
@@ -24,13 +25,14 @@ mongoose.connect(db.url)
 
 // Define routeslo  
 app.get("/", (req, res) => {
-  res.send("Welcome to Lovvir Redem Logs API Lovvit ketiga");
+  res.send("Welcome to master data Lovvit App");
 });
 
 // Integrate CRUD routes
 
 app.use('/api', cityRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/portalaccount', portalAccountRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
