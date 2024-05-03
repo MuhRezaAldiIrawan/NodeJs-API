@@ -12,10 +12,10 @@ const basicAuthMiddleware = (req, res, next) => {
 };
 
 function checkCredentials(username, password) {
-    const validUsername = 'admin';
-    const validPassword = 'password123'; 
 
-    return username === validUsername && password === validPassword;
+    const { USERNAME_API, PASSWORD_API} = process.env;
+
+    return username === USERNAME_API && password === PASSWORD_API;
 }
 
 module.exports = basicAuthMiddleware;

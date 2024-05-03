@@ -25,7 +25,7 @@ mongoose.connect(db.url)
 
 // Define routeslo  
 app.get("/", (req, res) => {
-  res.send("Welcome to master data Lovvit berhasil pakai nodemon");
+  res.send("Welcome to master data Lovvit App");
 });
 
 // Integrate CRUD routes
